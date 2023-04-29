@@ -42,17 +42,25 @@ const answerButton = document.getElementById("answerbuttons");
 const nextButton = document.getElementById("nextbtn");
 const startButton = document.getElementById("startbutton");
 
-let currentQuestionIndex = 1
+let currentQuestionIndex = 0
 let score = 75;
 
 
 
 // need to figure out how to run showQuestion function everytime currentQuestionIndex increases
+
+
+function resetState(){
+
+}
+
+
+
 function showQuestion(){
     questionElement.innerHTML = questions[currentQuestionIndex].question
-
     for (i=0; i < questions[currentQuestionIndex].answers.length; i++ ){
         var button = document.createElement("button");
+        button.classList.add("btn");
         button.innerHTML = questions[currentQuestionIndex].answers[i].text
         answerButton.appendChild(button);
         button.addEventListener("click", function() {
@@ -76,7 +84,6 @@ function startQuiz(){
         answerButton.children[i].setAttribute("class","btn")
     }
     showQuestion();
-
 };
 
 
